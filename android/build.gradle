@@ -1,0 +1,58 @@
+def getExtOrDefault(name, defaultValue) {
+    return rootProject.ext.has(name) ? rootProject.ext.get(name) : defaultValue
+}
+
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+        mavenCentral()
+         flatDir {
+             dirs 'libs'
+         }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.2'
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+    }
+    jcenter()
+    mavenCentral()
+      flatDir {
+          dirs 'libs'
+      }
+    google()
+}
+
+
+dependencies {
+    implementation 'com.facebook.react:react-native:+'
+    //implementation(project(path: ":fraudforce-lib-release-4.3.0"))
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api(name: 'fraudforce-lib-release-4.3.0', ext: 'aar')
+   //implementation(name:'fraudforce-lib-release-4.3.0', ext:'aar')
+}

@@ -1,0 +1,18 @@
+
+{
+  "name": "react-native-iovation-sdk",
+  "version": "1.0.7",
+  "description": "A react native module to get the black box string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "iovation"
+  ],
+  "author": "Ankit Kumar <ankit.kumar@dreamorbit.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
